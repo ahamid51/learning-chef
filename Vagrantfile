@@ -12,7 +12,9 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "base"
+  config.vm.box = "fedora-23"
+
+  config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_fedora-23_chef-provisionerless.box"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -68,4 +70,10 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
+  config.vm.provision :chef_client do |chef|
+	chef.chef_server_url = "https://manage.chef.io/organizations/hcreation"
+	chef.validation_key_path = "C:/chef-train/chef-repo/.chef/hcreation-validator.pem"
+	chef.validation_client_name = "hcreation-validator"
+	chef.node_name = "ahamid51_vm"
+  end
 end
