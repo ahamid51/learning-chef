@@ -8,6 +8,7 @@
 #
 execute "upgrade-update" do
 #	command "dnf update && yum upgrade -y"
-	command "dnf update sudo -y"
+#	command "dnf update sudo -y"
+	command "apt-get upgrade apt-transport-https -y"
 	action :run
 end

@@ -12,9 +12,10 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "fedora-23"
+  config.vm.box = "ubuntu-16.04"
 
-  config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_fedora-23_chef-provisionerless.box"
+  #config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-16.04_chef-provisionerless.box"
+  config.vm.box_url = "file:///C:/Abbas/Accenture/Trainings/DevOps/Vagrant/opscode_ubuntu-12.04-i386_chef-provisionerless.box"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -76,4 +77,18 @@ Vagrant.configure(2) do |config|
 	chef.validation_client_name = "hcreation-validator"
 	chef.node_name = "ahamid51_vm"
   end
+
+#  config.vm.define "web" do |web|
+#    web.vm.box = "fedora-23-2"
+#    
+#    web.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_fedora-23_chef-provisionerless.box"
+#
+#    web.vm.provision :chef_client do |chef|
+#  	chef.chef_server_url = "https://manage.chef.io/organizations/hcreation"
+#  	chef.validation_key_path = "C:/chef-train/chef-repo/.chef/hcreation-validator.pem"
+#  	chef.validation_client_name = "hcreation-validator"
+#  	chef.node_name = "ahamid51_vm2"
+#    end
+#  end
+  
 end
